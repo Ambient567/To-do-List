@@ -1,21 +1,12 @@
 import './style.css';
-import displayTasks from './modules/task.js';
+import Tasks from './modules/Task.js';
+import addTaskToList from './modules/control.js';
+import createTask from './modules/createTask.js';
 
-const Tasks = [
-  {
-    description: 'Wash the dishes',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'Wash the dishes',
-    completed: false,
-    index: 2,
-  },
-];
+createTask();
 
 window.addEventListener('DOMContentLoaded', () => {
   Tasks.forEach((i) => {
-    displayTasks(i);
+    addTaskToList(i);
   });
 });
