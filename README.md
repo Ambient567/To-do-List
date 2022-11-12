@@ -9,6 +9,8 @@
 [Live Demo Link](https://livedemo.com)
 ## Getting Started
 To get a local copy up and running follow these simple example steps.
+## Deploment
+- https://ambient567.github.io/To-do-List/dist/
 ### Prerequisites
 - git
 - Broswer to Display
