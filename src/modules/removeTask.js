@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-cycle
 import Store from './store.js';
 
 const removeTask = (id) => {

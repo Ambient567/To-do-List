@@ -37,6 +37,26 @@ const addTaskToList = (item) => {
     // eslint-disable-next-line no-use-before-define
     displayTasks();
   });
+
+  const taskStatus = document.getElementById(item.index);
+  const inputDisplay = document.getElementById(`input-display-${item.index}`);
+  taskStatus.addEventListener('click', () => {
+    if (taskStatus.checked) {
+      taskStatus.checked = true;
+      inputDisplay.style.textDecoration = 'line-through';
+      Store.checkCompleted(item.index);
+    } else {
+      taskStatus.checked = false;
+      inputDisplay.style.textDecoration = 'none';
+      Store.checkCompleted(item.index);
+    }
+  });
+
+  /* clear all completed */
+  const checkbox = document.querySelector('#clear-tasks');
+  checkbox.addEventListener('click', () => {
+    Store.clearAllComplete();
+  });
 };
 
 export const displayTasks = () => {
