@@ -1,3 +1,6 @@
+// eslint-disable-next-line import/no-cycle
+import removeTask from './removeTask.js';
+
 export default class Store {
   static getTask() {
     let list;
@@ -39,5 +42,25 @@ export default class Store {
 
     localStorage.setItem('list', JSON.stringify(list));
     return list;
-  }
+  };
+
+  static checkCompleted = (id) => {
+    const list = Store.getTask();
+    list.forEach((task) => {
+      if (task.index === id) {
+        task.completed = !task.completed;
+      }
+    });
+    localStorage.setItem('list', JSON.stringify(list));
+    return Store.getTask();
+  };
+
+  static clearAllComplete = () => {
+    const list = Store.getTask();
+    list.forEach((task) => {
+      if (task.completed) {
+        removeTask(task.index);
+      }
+    });
+  };
 }
